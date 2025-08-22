@@ -62,7 +62,7 @@ function CTAButton({ className = "" }) {
 }
 
 // Hero (usa /public/hero.png)
-function Hero() {
+function hero() {
   return (
     <section id="inicio" className="relative text-white">
       <img src="/hero.png" alt="Columnas y balanza" className="absolute inset-0 -z-10 w-full h-full object-cover" />
