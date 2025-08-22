@@ -78,15 +78,13 @@ function Hero() {
       <div className="absolute inset-0 -z-10 bg-black/55" />
       <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-          Defensa estratégica y soluciones legales{" "}
-          <span className="text-[#EDEBE7]">claras</span>
+          Defensa estratégica y soluciones legales <span className="text-[#EDEBE7]">claras</span>
         </h1>
-        <p className="mt-4 text-gray-100">
-          Civil • Penal • Laboral • Saneamiento Físico‑Legal
-        </p>
+        <p className="mt-4 text-gray-100">Civil • Penal • Laboral • Saneamiento Físico‑Legal</p>
       </div>
     </section>
   );
+}
 }
 
 /* Barra de confianza (sin ICAC) */
