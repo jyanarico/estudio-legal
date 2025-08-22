@@ -51,7 +51,7 @@ function CTAButton({ className = "" }) {
   return (
     <a
       href={whatsapp}
-      className={\`inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-white shadow hover:opacity-90 \${className}\`}
+      className={"inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-white shadow hover:opacity-90 " + className}
       style={{ backgroundColor: BRAND.primary }}
     >
       <CalendarClock className="h-4 w-4" />
