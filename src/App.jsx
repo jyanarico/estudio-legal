@@ -66,7 +66,7 @@ function CTAHeader() {
   );
 }
 
-/* Hero (usa /public/hero.png) */
+/* Hero */
 function Hero() {
   return (
     <section id="inicio" className="relative text-white">
@@ -78,41 +78,37 @@ function Hero() {
       <div className="absolute inset-0 -z-10 bg-black/55" />
       <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-          Defensa estratégica y soluciones legales <span className="text-[#EDEBE7]">claras</span>
+          Defensa estratégica y soluciones legales{" "}
+          <span className="text-[#EDEBE7]">claras</span>
         </h1>
-        <p className="mt-4 text-gray-100">Civil • Penal • Laboral • Saneamiento Físico‑Legal</p>
+        <p className="mt-4 text-gray-100">
+          Civil • Penal • Laboral • Saneamiento Físico-Legal
+        </p>
       </div>
     </section>
   );
 }
-}
 
-/* Barra de confianza (sin ICAC) */
+/* Barra de confianza */
 function TrustBar() {
-  const Item = ({ children }) => (
-    <span className="inline-flex items-center gap-2">
-      <CheckCircle2 className="h-4 w-4" />
-      {children}
-    </span>
-  );
   return (
     <div className="border-y border-white/10" style={{ backgroundColor: BRAND.primary }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-white text-xs flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-        <Item>Asesoramiento Personalizado</Item>
-        <Item>Conciliación Extrajudicial – Vía Judicial</Item>
-        <Item>Asesoramiento Empresarial</Item>
+        <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Asesoramiento Personalizado</span>
+        <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Conciliación Extrajudicial – Vía Judicial</span>
+        <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Asesoramiento Empresarial</span>
       </div>
     </div>
   );
 }
 
-/* Servicios (centrado) */
+/* Servicios */
 function Servicios() {
   const items = [
     { icon: <Gavel className="h-6 w-6 text-brand mx-auto" />, title: "Derecho Civil", desc: "Contratos, responsabilidad civil, desalojos y más." },
     { icon: <Landmark className="h-6 w-6 text-brand mx-auto" />, title: "Derecho Penal", desc: "Defensa en investigaciones y procesos penales." },
     { icon: <Users2 className="h-6 w-6 text-brand mx-auto" />, title: "Derecho Laboral", desc: "Patrocinio a trabajadores y empleadores." },
-    { icon: <Building2 className="h-6 w-6 text-brand mx-auto" />, title: "Saneamiento Físico‑Legal", desc: "Regularización de propiedad y títulos." },
+    { icon: <Building2 className="h-6 w-6 text-brand mx-auto" />, title: "Saneamiento Físico-Legal", desc: "Regularización de propiedad y títulos." },
   ];
   return (
     <section id="servicios" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -133,7 +129,7 @@ function Servicios() {
   );
 }
 
-/* Sobre Nosotros (texto y bullets actualizados; sin duplicar datos de contacto) */
+/* Sobre nosotros */
 function SobreNosotros() {
   return (
     <section id="sobre" className="bg-white border-y border-gray-100">
@@ -143,9 +139,7 @@ function SobreNosotros() {
             Sobre Nosotros
           </h2>
           <p className="mt-3 text-gray-600">
-            Encabezado por el abogado <span className="font-medium">Javier Alexis Yanarico Vilchez</span>,
-            especialista en derecho laboral y civil, con experiencia adicional en asesoramiento de
-            empresas y patrocinio en procesos penales, administrativos y demás.
+            Encabezado por el abogado <span className="font-medium">Javier Alexis Yanarico Vilchez</span>, especialista en derecho laboral y civil, con experiencia adicional en asesoramiento de empresas y patrocinio en procesos penales, administrativos y demás.
           </p>
           <ul className="mt-6 space-y-2 text-sm text-gray-700 list-disc list-inside">
             <li>Atención personalizada y comunicación clara.</li>
@@ -153,8 +147,6 @@ function SobreNosotros() {
             <li>Experiencia con empresas del sector Salud y Telecomunicaciones.</li>
           </ul>
         </div>
-
-        {/* Solo ubicación y horario (sin +51 ni duplicar contacto) */}
         <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-inner">
           <h3 className="font-medium">Ubicación y horario</h3>
           <ul className="mt-4 space-y-3 text-sm text-gray-700">
@@ -171,10 +163,9 @@ function SobreNosotros() {
   );
 }
 
-/* Contáctanos (teléfono sin +51) */
+/* Contacto */
 function Contacto() {
-  const whatsapp =
-    "https://wa.me/51988996057?text=Hola%20Lic.%20Yanarico,%20quisiera%20agendar%20una%20consulta";
+  const whatsapp = "https://wa.me/51988996057?text=Hola%20Lic.%20Yanarico,%20quisiera%20agendar%20una%20consulta";
   return (
     <section id="contacto" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="grid md:grid-cols-2 gap-10">
@@ -182,35 +173,11 @@ function Contacto() {
           <p className="text-brand font-semibold">Contáctanos</p>
           <h3 className="mt-2 text-xl font-semibold">Agenda tu consulta</h3>
           <ul className="mt-6 space-y-3 text-sm text-gray-700">
-            <li className="flex items-center gap-3">
-              <Phone className="h-4 w-4" />
-              <a href={whatsapp} className="hover:underline">988 996 057 (WhatsApp)</a>
-            </li>
-            <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4" />
-              <a href="mailto:jyanarico.abogado@gmail.com" className="hover:underline">
-                jyanarico.abogado@gmail.com
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4" /> Jr. Miguel Iglesias N° 195, Cajamarca — 3er piso
-            </li>
+            <li className="flex items-center gap-3"><Phone className="h-4 w-4" /> <a href={whatsapp} className="hover:underline">988 996 057 (WhatsApp)</a></li>
+            <li className="flex items-center gap-3"><Mail className="h-4 w-4" /> <a href="mailto:jyanarico.abogado@gmail.com" className="hover:underline">jyanarico.abogado@gmail.com</a></li>
+            <li className="flex items-center gap-3"><MapPin className="h-4 w-4" /> Jr. Miguel Iglesias N° 195, Cajamarca — 3er piso</li>
           </ul>
-          <div className="mt-6">
-            <a
-              href={whatsapp}
-              className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-white shadow hover:opacity-90"
-              style={{ backgroundColor: BRAND.primary }}
-            >
-              <Phone className="h-4 w-4" /> Escribir por WhatsApp
-            </a>
-          </div>
-          <p className="mt-6 text-xs text-gray-500">
-            *La comunicación no crea relación abogado‑cliente hasta la confirmación de encargo y aceptación de honorarios.
-          </p>
         </div>
-
-        {/* Formulario simple (no envía aún) */}
         <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-inner">
           <h3 className="font-medium">Envíanos un mensaje</h3>
           <form className="mt-4 grid grid-cols-1 gap-4" onSubmit={(e)=>e.preventDefault()}>
@@ -234,10 +201,7 @@ function Footer() {
     <footer className="border-t border-gray-100 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <div
-            className="h-9 w-9 rounded-2xl grid place-content-center text-white shadow-sm"
-            style={{ backgroundColor: BRAND.primary }}
-          >
+          <div className="h-9 w-9 rounded-2xl grid place-content-center text-white shadow-sm" style={{ backgroundColor: BRAND.primary }}>
             <Scale className="h-5 w-5" />
           </div>
           <div>
@@ -245,9 +209,7 @@ function Footer() {
             <p className="text-xs text-gray-500">Cajamarca – Perú</p>
           </div>
         </div>
-        <div className="text-xs text-gray-500">
-          © {new Date().getFullYear()} J. Yanarico Abogados & Asociados — Cajamarca, Perú
-        </div>
+        <div className="text-xs text-gray-500">© {new Date().getFullYear()} J. Yanarico Abogados & Asociados — Cajamarca, Perú</div>
       </div>
     </footer>
   );
