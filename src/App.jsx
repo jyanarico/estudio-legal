@@ -37,8 +37,8 @@ function Header() {
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <a href="#servicios" className="hover:text-brand">Servicios</a>
-          <a href="#sobre" className="hover:text-brand">Sobre el estudio</a>
-          <a href="#contacto" className="hover:text-brand">Contacto</a>
+          <a href="#sobre" className="hover:text-brand">Sobre Nosotros</a>
+          <a href="#contacto" className="hover:text-brand">Contáctanos</a>
         </nav>
         <CTAButton className="hidden md:inline-flex" />
       </div>
@@ -69,7 +69,7 @@ function hero() {
       <div className="absolute inset-0 -z-10 bg-black/55" />
       <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-          Defensa estratégica y soluciones legales <span className="text-[#EDEBE7]">claras</span>
+          Soluciones legales a tu alcance <span className="text-[#EDEBE7]">claras</span>
         </h1>
         <p className="mt-4 text-gray-100">Civil • Penal • Laboral • Saneamiento Físico‑Legal</p>
         <div className="mt-6 flex justify-center"><CTAButton /></div>
@@ -83,10 +83,9 @@ function TrustBar() {
   return (
     <div className="border-y border-white/10" style={{ backgroundColor: BRAND.primary }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-white text-xs flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-        <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> ICAC Reg. 3495</span>
-        <span className="inline-flex items-center gap-2"><Gavel className="h-4 w-4" /> Litigio estratégico</span>
-        <span className="inline-flex items-center gap-2"><Landmark className="h-4 w-4" /> Arbitraje & vía administrativa</span>
-        <span className="inline-flex items-center gap-2"><Building2 className="h-4 w-4" /> Asesoría corporativa (Bitel)</span>
+        <span className="inline-flex items-center gap-2"><Gavel className="h-4 w-4" /> Estrategia personalizada</span>
+        <span className="inline-flex items-center gap-2"><Landmark className="h-4 w-4" /> Conciliación - Vía judicial</span>
+        <span className="inline-flex items-center gap-2"><Building2 className="h-4 w-4" /> Asesoramiento de Empresas</span>
       </div>
     </div>
   );
@@ -126,20 +125,20 @@ function SobreMi() {
         <div>
           <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-brand">Sobre el estudio</h2>
           <p className="mt-3 text-gray-600">
-            Dirigido por el abogado <span className="font-medium">Javier Alexis Yanarico Vilchez</span> (ICAC 3495),
-            con experiencia en asesoría corporativa y patrocinio en litigios civiles, penales y laborales.
+            Dirigido por el abogado <span className="font-medium">Javier Alexis Yanarico Vilchez</span>,
+            con experiencia en asesoría legal corporativa y patrocinio en litigios civiles, penales y laborales.
           </p>
           <ul className="mt-6 space-y-2 text-sm text-gray-700 list-disc list-inside">
             <li>Atención personalizada y comunicación clara.</li>
             <li>Estrategias de defensa enfocadas en resultados.</li>
-            <li>Experiencia con empresas del sector telecomunicaciones (Bitel).</li>
+            <li>Experiencia con empresas del sector Salud y Telecomunicaciones.</li>
           </ul>
         </div>
         <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-inner">
           <h3 className="font-medium">Ubicación y horario</h3>
           <ul className="mt-4 space-y-3 text-sm text-gray-700">
             <li className="flex items-center gap-3"><MapPin className="h-4 w-4" /> Jr. Miguel Iglesias N° 195, Cajamarca — 3er piso</li>
-            <li className="flex items-center gap-3"><Phone className="h-4 w-4" /> +51 988 996 057 (WhatsApp)</li>
+            <li className="flex items-center gap-3"><Phone className="h-4 w-4" /> 988 996 057 (WhatsApp)</li>
             <li className="flex items-center gap-3"><Mail className="h-4 w-4" /> jyanarico.abogado@gmail.com</li>
           </ul>
           <div className="mt-6 text-sm text-gray-700">
@@ -202,7 +201,7 @@ function Footer() {
           </div>
           <div>
             <p className="font-semibold">J. Yanarico Abogados & Asociados</p>
-            <p className="text-xs text-gray-500">ICAC 3495</p>
+            <p className="text-xs text-gray-500">Cajamarca - Perú</p>
           </div>
         </div>
         <div className="text-xs text-gray-500">© {new Date().getFullYear()} J. Yanarico Abogados & Asociados — Cajamarca, Perú</div>
