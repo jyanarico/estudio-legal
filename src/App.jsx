@@ -69,19 +69,27 @@ function CTAHeader() {
 /* Hero */
 function Hero() {
   return (
-    <section id="inicio" className="relative text-white">
+    <section
+      id="inicio"
+      className="relative text-white min-h-[60vh] flex items-center justify-center"
+    >
+      {/* Imagen de fondo */}
       <img
         src="/hero.png"
         alt="Columnas y balanza"
         className="absolute inset-0 -z-10 w-full h-full object-cover"
       />
+
+      {/* Capa oscura encima de la imagen */}
       <div className="absolute inset-0 -z-10 bg-black/55" />
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
+
+      {/* Contenido del Hero */}
+      <div className="relative max-w-4xl mx-auto px-6 text-center">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
           Defensa estratégica y soluciones legales{" "}
           <span className="text-[#EDEBE7]">claras</span>
         </h1>
-        <p className="mt-4 text-gray-100">
+        <p className="mt-4 text-lg text-gray-100">
           Civil • Penal • Laboral • Saneamiento Físico-Legal
         </p>
       </div>
