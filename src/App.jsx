@@ -1,63 +1,84 @@
 import React from "react";
 import {
-  CalendarClock, ArrowRight, Scale, Gavel, Landmark, Building2, Users2,
-  CheckCircle2, Phone, Mail, MapPin
+  Gavel,
+  Landmark,
+  Building2,
+  ShieldCheck,
+  MessageSquareMore,
+  CalendarClock,
+  ArrowRight,
+  Phone,
+  Mail,
+  MapPin,
 } from "lucide-react";
 
-const BRAND = { primary: "#293C3D", dark: "#1F2E2F", gold: "#C9A461" };
+/* Paleta rápida (no requiere tailwind.config):
+   - Verde institucional (fondo): #293C3D
+   - Verde medio (detalles):      #365455
+   - Beige claro (acento texto):  #EDEBE7
+*/
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div className="min-h-screen bg-[#293C3D] text-white">
       <Header />
       <Hero />
-      <TrustBar />
+      <FeatureStrip />
       <Servicios />
-      <SobreNosotros />
+      <Sobre />
       <Contacto />
       <Footer />
+      <FloatingCTA />
     </div>
   );
 }
 
-/* Header */
+/* ────────────────────────────────────────────────────────────────── */
+/* Header                                                             */
+/* ────────────────────────────────────────────────────────────────── */
 function Header() {
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#inicio" className="flex items-center gap-3">
-          <div
-            className="h-9 w-9 rounded-2xl grid place-content-center text-white shadow-sm"
-            style={{ backgroundColor: BRAND.primary }}
-          >
-            <Scale className="h-5 w-5" />
-          </div>
-          <div className="leading-tight">
-            <p className="font-semibold">J. Yanarico Abogados & Asociados</p>
-            <p className="text-xs text-gray-500">Cajamarca • Perú</p>
-          </div>
-        </a>
+    <header className="sticky top-0 z-40 bg-[#293C3D]/95 backdrop-blur border-b border-white/5">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="h-16 flex items-center justify-between">
+          <a href="#inicio" className="flex items-center gap-3">
+            <div className="h-9 w-9 rounded-2xl bg-white/10 grid place-content-center">
+              <Landmark className="h-5 w-5 text-white" />
+            </div>
+            <div className="leading-tight">
+              <p className="font-semibold">J. Yanarico Abogados & Asociados</p>
+              <p className="text-xs text-white/70">Cajamarca • Perú</p>
+            </div>
+          </a>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#servicios" className="hover:text-brand">Nuestros Servicios</a>
-          <a href="#sobre" className="hover:text-brand">Sobre Nosotros</a>
-          <a href="#contacto" className="hover:text-brand">Contáctanos</a>
-        </nav>
+          <nav className="hidden md:flex items-center gap-7 text-sm">
+            <a href="#servicios" className="text-white/80 hover:text-[#EDEBE7]">
+              Nuestros Servicios
+            </a>
+            <a href="#sobre" className="text-white/80 hover:text-[#EDEBE7]">
+              Sobre Nosotros
+            </a>
+            <a href="#contacto" className="text-white/80 hover:text-[#EDEBE7]">
+              Contáctanos
+            </a>
+          </nav>
 
-        <CTAHeader />
+          <div className="hidden md:block">
+            <CTAButton />
+          </div>
+        </div>
       </div>
     </header>
   );
 }
 
-function CTAHeader() {
+function CTAButton() {
   const whatsapp =
     "https://wa.me/51988996057?text=Hola%20Lic.%20Yanarico,%20quisiera%20agendar%20una%20consulta";
   return (
     <a
       href={whatsapp}
-      className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-white shadow hover:opacity-90"
-      style={{ backgroundColor: BRAND.primary }}
+      className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-white text-[#293C3D] font-medium hover:bg-[#EDEBE7] transition"
     >
       <CalendarClock className="h-4 w-4" />
       <span>Agenda una consulta</span>
@@ -66,30 +87,29 @@ function CTAHeader() {
   );
 }
 
-/* Hero */
+/* ────────────────────────────────────────────────────────────────── */
+/* Hero                                                               */
+/* ────────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden text-white min-h-[60vh] flex items-center justify-center"
+      className="relative overflow-hidden text-white min-h-[60vh] md:min-h-[68vh] flex items-center justify-center"
     >
-      {/* Imagen de fondo (abajo del todo) */}
+      {/* imagen en /public/hero.png */}
       <img
-        src="/hero.png"              // también sirve si usas /hero.jpg
+        src="/hero.png"
         alt="Columnas y balanza"
         className="absolute inset-0 z-0 w-full h-full object-cover"
       />
-
-      {/* Capa oscura encima de la imagen */}
+      {/* capa oscura para contraste */}
       <div className="absolute inset-0 z-10 bg-black/55" />
 
-      {/* Contenido por encima de todo */}
-      <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
-        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-          Defensa estratégica y soluciones legales{" "}
-          <span className="text-[#EDEBE7]">claras</span>
+      <div className="relative z-20 max-w-5xl mx-auto px-6 text-center">
+        <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
+          Comprometidos con tu defensa y la seguridad legal de tus derechos
         </h1>
-        <p className="mt-4 text-lg text-gray-100">
+        <p className="mt-4 text-white/90">
           Civil • Penal • Laboral • Saneamiento Físico‑Legal
         </p>
       </div>
@@ -97,73 +117,165 @@ function Hero() {
   );
 }
 
-/* Barra de confianza */
-function TrustBar() {
+/* ────────────────────────────────────────────────────────────────── */
+/* Tira de diferenciales (verde)                                      */
+/* ────────────────────────────────────────────────────────────────── */
+function FeatureStrip() {
+  const items = [
+    { icon: ShieldCheck, label: "Asesoramiento Personalizado" },
+    {
+      icon: Gavel,
+      label: "Conciliación Extrajudicial – Vía Judicial",
+    },
+    { icon: Building2, label: "Asesoramiento Empresarial" },
+  ];
   return (
-    <div className="border-y border-white/10" style={{ backgroundColor: BRAND.primary }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-white text-xs flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-        <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Asesoramiento Personalizado</span>
-        <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Conciliación Extrajudicial – Vía Judicial</span>
-        <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Asesoramiento Empresarial</span>
+    <div className="bg-[#22373A] border-y border-white/10">
+      <div className="mx-auto max-w-7xl px-6 py-3 flex flex-col md:flex-row gap-3 md:gap-8 items-center justify-center">
+        {items.map((it, i) => (
+          <div key={i} className="flex items-center gap-2 text-sm">
+            <it.icon className="h-4 w-4 text-[#EDEBE7]" />
+            <span className="text-white/90">{it.label}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-/* Servicios */
+/* ────────────────────────────────────────────────────────────────── */
+/* Servicios – tarjetas claras sobre fondo verde                      */
+/* ────────────────────────────────────────────────────────────────── */
 function Servicios() {
-  const items = [
-    { icon: <Gavel className="h-6 w-6 text-brand mx-auto" />, title: "Derecho Civil", desc: "Contratos, responsabilidad civil, desalojos y más." },
-    { icon: <Landmark className="h-6 w-6 text-brand mx-auto" />, title: "Derecho Penal", desc: "Defensa en investigaciones y procesos penales." },
-    { icon: <Users2 className="h-6 w-6 text-brand mx-auto" />, title: "Derecho Laboral", desc: "Patrocinio a trabajadores y empleadores." },
-    { icon: <Building2 className="h-6 w-6 text-brand mx-auto" />, title: "Saneamiento Físico-Legal", desc: "Regularización de propiedad y títulos." },
+  const cards = [
+    {
+      icon: Gavel,
+      title: "Derecho Penal",
+      desc:
+        "Defensa técnica y patrocinio estratégico en investigaciones y procesos.",
+    },
+    {
+      icon: Landmark,
+      title: "Derecho Civil",
+      desc: "Contratos, indemnizaciones, propiedad y responsabilidades.",
+    },
+    {
+      icon: Building2,
+      title: "Derecho Laboral",
+      desc: "Asesoría y defensa para trabajadores y empresas.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Saneamiento Físico‑Legal",
+      desc: "Regularización de inmuebles, títulos y levantamiento de cargas.",
+    },
   ];
-  return (
-    <section id="servicios" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="text-center">
-        <p className="text-brand font-semibold">Servicios</p>
-        <h2 className="mt-2 text-2xl md:text-4xl font-semibold tracking-tight">Especialidades del estudio</h2>
-      </div>
-      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {items.map((s, i) => (
-          <div key={i} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm text-center">
-            <div>{s.icon}</div>
-            <h3 className="mt-3 font-medium">{s.title}</h3>
-            <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
-/* Sobre nosotros */
-function SobreNosotros() {
   return (
-    <section id="sobre" className="bg-white border-y border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-2 gap-10">
-        <div>
-          <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-brand">
-            Sobre Nosotros
+    <section id="servicios" className="py-16 bg-[#293C3D]">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="text-center mb-10">
+          <p className="uppercase tracking-wide text-white/70">Servicios</p>
+          <h2 className="text-2xl md:text-4xl font-semibold text-[#EDEBE7]">
+            Especialidades del estudio
           </h2>
-          <p className="mt-3 text-gray-600">
-            Encabezado por el abogado <span className="font-medium">Javier Alexis Yanarico Vilchez</span>, especialista en derecho laboral y civil, con experiencia adicional en asesoramiento de empresas y patrocinio en procesos penales, administrativos y demás.
-          </p>
-          <ul className="mt-6 space-y-2 text-sm text-gray-700 list-disc list-inside">
-            <li>Atención personalizada y comunicación clara.</li>
-            <li>Estrategias de defensa enfocadas en resultados.</li>
-            <li>Experiencia con empresas del sector Salud y Telecomunicaciones.</li>
-          </ul>
         </div>
-        <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-inner">
-          <h3 className="font-medium">Ubicación y horario</h3>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
-            <li className="flex items-center gap-3"><MapPin className="h-4 w-4" /> Jr. Miguel Iglesias N° 195, Cajamarca — 3er piso</li>
-          </ul>
-          <div className="mt-6 text-sm text-gray-700">
-            <p className="font-medium">Horario de atención</p>
-            <p>Lun–Vie: 9:00 a. m. – 6:00 p. m.</p>
-            <p>Sáb: 9:00 a. m. – 1:00 p. m.</p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cards.map((c, i) => (
+            <div
+              key={i}
+              className="bg-white text-slate-800 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+            >
+              <c.icon className="h-6 w-6 text-[#293C3D]" />
+              <h3 className="mt-4 font-semibold">{c.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────────── */
+/* Sobre nosotros – bloque en verde medio                             */
+/* ────────────────────────────────────────────────────────────────── */
+function Sobre() {
+  return (
+    <section id="sobre" className="py-16 bg-[#365455]">
+      <div className="mx-auto max-w-5xl px-6">
+        <h2 className="text-2xl md:text-4xl font-semibold text-[#EDEBE7] text-center">
+          Sobre el estudio
+        </h2>
+        <p className="mt-6 text-white/90 text-center leading-relaxed">
+          Encabezado por el abogado <span className="font-semibold">Javier
+          Alexis Yanarico Vilchez</span>, especialista en derecho laboral y
+          civil, con experiencia adicional en asesoramiento de empresas y
+          patrocinio en procesos penales, administrativos y demás.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────────── */
+/* Contacto – caja clara sobre fondo verde                            */
+/* ────────────────────────────────────────────────────────────────── */
+function Contacto() {
+  const whatsapp =
+    "https://wa.me/51988996057?text=Hola%20Lic.%20Yanarico,%20quisiera%20agendar%20una%20consulta";
+  return (
+    <section id="contacto" className="py-16 bg-[#293C3D]">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          <div className="bg-white text-slate-800 rounded-2xl p-6">
+            <h3 className="font-semibold text-lg">Contáctanos</h3>
+            <ul className="mt-4 space-y-2 text-slate-700">
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-[#293C3D]" />
+                <span>988 996 057</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-[#293C3D]" />
+                <span>jyanarico.abogado@gmail.com</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-[#293C3D]" />
+                <span>
+                  Jr. Miguel Iglesias N° 195, 3er piso — Cajamarca, Perú
+                </span>
+              </li>
+            </ul>
+
+            <div className="mt-6 text-sm text-slate-600">
+              <p>
+                <span className="font-medium">Lun – Vie:</span> 9:00 a. m. – 6:00
+                p. m.
+              </p>
+              <p>
+                <span className="font-medium">Sáb:</span> 9:00 a. m. – 1:00 p. m.
+              </p>
+            </div>
+
+            <a
+              href={whatsapp}
+              className="mt-6 inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-[#293C3D] text-white hover:bg-[#1F2E2F]"
+            >
+              <MessageSquareMore className="h-4 w-4" />
+              <span>Escríbenos por WhatsApp</span>
+            </a>
+          </div>
+
+          <div className="rounded-2xl p-6 bg-[#22373A] border border-white/10">
+            <h4 className="font-semibold text-[#EDEBE7]">
+              ¿Cómo trabajamos?
+            </h4>
+            <ul className="mt-4 space-y-2 text-white/90">
+              <li>• Atención personalizada y comunicación clara.</li>
+              <li>• Estrategias de defensa enfocadas en resultados.</li>
+              <li>• Experiencia con empresas del sector Salud y Telecomunicaciones.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -171,54 +283,35 @@ function SobreNosotros() {
   );
 }
 
-/* Contacto */
-function Contacto() {
-  const whatsapp = "https://wa.me/51988996057?text=Hola%20Lic.%20Yanarico,%20quisiera%20agendar%20una%20consulta";
-  return (
-    <section id="contacto" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="grid md:grid-cols-2 gap-10">
-        <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-          <p className="text-brand font-semibold">Contáctanos</p>
-          <h3 className="mt-2 text-xl font-semibold">Agenda tu consulta</h3>
-          <ul className="mt-6 space-y-3 text-sm text-gray-700">
-            <li className="flex items-center gap-3"><Phone className="h-4 w-4" /> <a href={whatsapp} className="hover:underline">988 996 057 (WhatsApp)</a></li>
-            <li className="flex items-center gap-3"><Mail className="h-4 w-4" /> <a href="mailto:jyanarico.abogado@gmail.com" className="hover:underline">jyanarico.abogado@gmail.com</a></li>
-            <li className="flex items-center gap-3"><MapPin className="h-4 w-4" /> Jr. Miguel Iglesias N° 195, Cajamarca — 3er piso</li>
-          </ul>
-        </div>
-        <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-inner">
-          <h3 className="font-medium">Envíanos un mensaje</h3>
-          <form className="mt-4 grid grid-cols-1 gap-4" onSubmit={(e)=>e.preventDefault()}>
-            <input className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand" placeholder="Nombre y apellidos" />
-            <input className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand" placeholder="Correo electrónico" />
-            <input className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand" placeholder="Teléfono" />
-            <textarea rows={4} className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand" placeholder="Cuéntanos brevemente tu caso" />
-            <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-white text-sm shadow" style={{ backgroundColor: BRAND.primary }}>
-              Enviar mensaje <ArrowRight className="h-4 w-4" />
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* Footer */
+/* ────────────────────────────────────────────────────────────────── */
+/* Footer                                                             */
+/* ────────────────────────────────────────────────────────────────── */
 function Footer() {
   return (
-    <footer className="border-t border-gray-100 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-2xl grid place-content-center text-white shadow-sm" style={{ backgroundColor: BRAND.primary }}>
-            <Scale className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="font-semibold">J. Yanarico Abogados & Asociados</p>
-            <p className="text-xs text-gray-500">Cajamarca – Perú</p>
-          </div>
-        </div>
-        <div className="text-xs text-gray-500">© {new Date().getFullYear()} J. Yanarico Abogados & Asociados — Cajamarca, Perú</div>
+    <footer className="bg-[#22373A] border-t border-white/10">
+      <div className="mx-auto max-w-7xl px-6 py-6 text-center text-white/80">
+        <p className="text-sm">
+          © {new Date().getFullYear()} J. Yanarico Abogados & Asociados —{" "}
+          <span className="text-white/90">Cajamarca • Perú</span>
+        </p>
       </div>
     </footer>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────────── */
+/* Botón flotante de WhatsApp                                         */
+/* ────────────────────────────────────────────────────────────────── */
+function FloatingCTA() {
+  const whatsapp =
+    "https://wa.me/51988996057?text=Hola%20Lic.%20Yanarico,%20quisiera%20agendar%20una%20consulta";
+  return (
+    <a
+      href={whatsapp}
+      className="fixed bottom-5 right-5 inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white text-[#293C3D] shadow-lg hover:bg-[#EDEBE7]"
+    >
+      <CalendarClock className="h-4 w-4" />
+      <span className="hidden sm:inline">Agenda tu consulta</span>
+    </a>
   );
 }
