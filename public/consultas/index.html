@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Consultas Gratuitas – Estudio Jurídico Yanarico</title>
+  <meta name="description" content="Consulta legal gratuita. Respuesta en menos de 24 h. Atención en Cajamarca y provincias.">
+  <meta name="theme-color" content="#0f6b57">
+  <style>
+    :root{--green:#0f6b57;--green-soft:#138d73;--charcoal:#101314;--soft:#1a1f20;--ink:#eafff9;}
+    *{box-sizing:border-box} body{margin:0;padding:0;background:var(--charcoal);color:#fff;font-family:sans-serif}
+    a{color:#b3ffe9}
+    header{padding:16px;background:var(--charcoal);border-bottom:1px solid #222}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:38px;height:38px;border-radius:12px;background:var(--green);display:grid;place-items:center;font-weight:800}
+    main{max-width:700px;margin:0 auto;padding:20px}
+    h1{font-size:28px;margin:10px 0}
+    .card{background:var(--soft);border:1px solid #0f6b5722;padding:16px;border-radius:16px;margin-top:12px}
+    input,select,textarea{width:100%;margin-top:4px;background:#0e1112;border:1px solid var(--green);border-radius:12px;padding:12px 14px;color:var(--ink)}
+    textarea{resize:vertical;min-height:120px}
+    button{background:var(--green);color:#fff;font-weight:800;border:none;border-radius:12px;padding:14px;width:100%;cursor:pointer}
+    .muted{font-size:12px;opacity:.8;margin-top:6px}
+    footer{margin-top:28px;font-size:12px;opacity:.7;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">⚖️</div>
+      <div>
+        <div style="font-weight:800;font-size:16px">Estudio Jurídico Yanarico</div>
+        <div style="opacity:.8;font-size:12px">ICAC 3495 – Cajamarca</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Consultas gratuitas – respuesta en menos de 24 h</h1>
+    <p>Atención en Cajamarca y provincias. Sin mostrar rostro, trato directo por WhatsApp.</p>
+
+    <form id="form" class="card">
+      <label>Nombre completo*<input id="nombre" required></label><br>
+      <label>WhatsApp*<input id="whatsapp" placeholder="+51..." required></label><br>
+      <label>Correo (opcional)<input id="correo"></label><br>
+      <label>Área legal*
+        <select id="area">
+          <option>Penal</option><option>Civil</option><option>Laboral</option>
+          <option>Familia</option><option>Saneamiento físico-legal</option><option>Administrativo</option>
+        </select>
+      </label><br>
+      <label>Cuéntame tu caso*<textarea id="descripcion" required></textarea></label><br>
+      <label><input type="checkbox" id="acepto"> Acepto que esta es info general y autorizo contacto (no constituye asesoría legal).</label><br>
+      <button type="submit">Enviar por WhatsApp</button>
+      <div class="muted">Si WhatsApp no abre, respaldo por correo: <a id="mailtoLink" href="#">Enviar por e-mail</a></div>
+    </form>
+
+    <footer>© <span id="year"></span> Estudio Jurídico Yanarico. Info general. Cada caso es distinto.</footer>
+  </main>
+
+  <script>
+    const TU_WHATSAPP = "+51988996057";
+    const TU_EMAIL = "jyanarico.abogado@gmail.com";
+    const $ = (id)=>document.getElementById(id);
+    function encode(s){return encodeURIComponent((s||'').trim());}
+    function buildWA(){
+      return "https://wa.me/"+TU_WHATSAPP.replace(/\\D/g,'')+"?text="+
+      encode("Nueva consulta gratuita\\nNombre: "+$("nombre").value+"\\nWhatsApp: "+$("whatsapp").value+"\\nCorreo: "+$("correo").value+"\\nÁrea: "+$("area").value+"\\nDescripción: "+$("descripcion").value);
+    }
+    function buildMail(){return "mailto:"+TU_EMAIL+"?subject="+encode("[Consulta gratuita] "+$("area").value)+"&body="+encode("Nombre:"+$("nombre").value+"\\nWhatsApp:"+$("whatsapp").value+"\\nCorreo:"+$("correo").value+"\\nDescripción:"+$("descripcion").value);}
+    document.addEventListener("DOMContentLoaded",()=>{
+      $("year").textContent=new Date().getFullYear();
+      $("form").onsubmit=(e)=>{e.preventDefault();
+        if(!$("acepto").checked){alert("Debes aceptar el aviso.");return;}
+        window.open(buildWA(),"_blank");
+        setTimeout(()=>{window.location.href=buildMail();},300);
+      };
+      $("form").oninput=()=>{$("mailtoLink").href=buildMail();}
+    });
+  </script>
+</body>
+</html>
