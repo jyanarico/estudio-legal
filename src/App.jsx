@@ -1,3 +1,4 @@
+import InstallApp from './InstallApp'
 import React from "react";
 import {
   Gavel,
