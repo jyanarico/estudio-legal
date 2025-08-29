@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#293C3D] text-white">
       <Header />
-      <InstallApp />
+      <InstallApp />   {/* ⬅️ Banner de descarga de la app */}
       <Hero />
       <FeatureStrip />
       <Servicios />
