@@ -34,23 +34,24 @@ export default function App() {
 }
 
 /* ────────────────────────────────────────────────────────────────── */
-/* Header con logo                                                    */
+/* Header con logo + nombre en 2 líneas                               */
 /* ────────────────────────────────────────────────────────────────── */
 function Header() {
   return (
     <header className="sticky top-0 z-40 bg-[#293C3D]/95 backdrop-blur border-b border-white/5">
       <div className="mx-auto max-w-7xl px-6">
         <div className="h-16 flex items-center justify-between">
-          <a href="#inicio" className="flex items-center gap-3">
-            {/* Logo real desde /public/logo.png */}
+          <a href="#inicio" className="flex items-center gap-3 min-w-0">
+            {/* Logo desde /public/logo.png */}
             <img
               src="/logo.png"
               alt="Logo J. Yanarico"
-              className="h-9 w-auto rounded-full bg-white p-1"
+              className="h-10 w-10 shrink-0 object-contain rounded-full ring-1 ring-white/15"
             />
-            <div className="leading-tight">
-              <p className="font-semibold">J. Yanarico Abogados & Asociados</p>
-              <p className="text-xs text-white/70">Cajamarca • Perú</p>
+            {/* Nombre en dos líneas */}
+            <div className="leading-tight whitespace-pre-line">
+              <p className="text-base font-semibold">J. Yanarico</p>
+              <p className="text-sm text-white/85">Abogados & Asociados</p>
             </div>
           </a>
 
@@ -126,10 +127,7 @@ function Hero() {
 function FeatureStrip() {
   const items = [
     { icon: ShieldCheck, label: "Asesoramiento Personalizado" },
-    {
-      icon: Gavel,
-      label: "Conciliación Extrajudicial – Vía Judicial",
-    },
+    { icon: Gavel, label: "Conciliación Extrajudicial – Vía Judicial" },
     { icon: Building2, label: "Asesoramiento Empresarial" },
   ];
   return (
