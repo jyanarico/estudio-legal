@@ -9,6 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        // Ignoramos hero.png para que no intente precachearlo (supera 2 MiB)
+        globIgnores: ['**/hero.png'],
       },
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
