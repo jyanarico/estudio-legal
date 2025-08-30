@@ -7,19 +7,32 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'logo.png'],
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+      },
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'J. Yanarico – Consultas Legales',
+        name: 'J. Yanarico Abogados & Asociados',
         short_name: 'JY Abogados',
-        description: 'Descarga la app y recibe tu primera consulta gratis.',
+        description: 'Defensa estratégica y soluciones legales claras. Primera consulta gratis.',
+        start_url: '/',
+        scope: '/',
+        display: 'standalone',
         theme_color: '#293C3D',
         background_color: '#293C3D',
-        display: 'standalone',
-        start_url: '/',
+        lang: 'es-PE',
         icons: [
           { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
           { src: '/icons/maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
+        ],
+        shortcuts: [
+          {
+            name: 'Hacer consulta',
+            short_name: 'Consultas',
+            url: '/consultas',
+            icons: [{ src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' }]
+          }
         ]
       }
     })
