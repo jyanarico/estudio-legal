@@ -5,7 +5,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(<App />)
 
-// Registrar Service Worker para PWA
+// registra el SW generado por vite-plugin-pwa
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch(() => {})
