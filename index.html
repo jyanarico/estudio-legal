@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>J. Yanarico Abogados & Asociados</title>
-    <meta name="description" content="Defensa estratégica y soluciones legales claras. Civil, Penal, Laboral y Saneamiento Físico-Legal en Cajamarca." />
+    <meta name="description" content="Descarga la app y recibe tu primera consulta gratis. Defensa estratégica y soluciones legales claras en Cajamarca y provincias."/>
 
-    <link rel="icon" href="/logo.png" />
-
-    <!-- META para PWA -->
+    <!-- SEO / OpenGraph -->
     <meta name="theme-color" content="#293C3D" />
+    <meta property="og:title" content="J. Yanarico Abogados & Asociados" />
+    <meta property="og:description" content="Descarga la app y recibe tu primera consulta gratis. Atención en Cajamarca y provincias." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/hero.png" />
+
+    <!-- iOS PWA -->
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- (vite-plugin-pwa genera el manifest; este fallback no estorba) -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.ico" />
   </head>
+
   <body class="antialiased bg-gray-50 text-gray-900">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
