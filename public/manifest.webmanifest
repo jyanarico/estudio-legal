@@ -1,0 +1,35 @@
+{
+  "name": "JY Abogados",
+  "short_name": "Yanarico",
+  "id": "pe.jyanarico.estudiolegal",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#293C3D",
+  "theme_color": "#293C3D",
+  "description": "Defensa estratégica y soluciones legales claras. Primera consulta gratis.",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}
