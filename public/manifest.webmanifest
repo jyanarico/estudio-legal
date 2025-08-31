@@ -1,35 +1,57 @@
 {
   "name": "JY Abogados",
-  "short_name": "Yanarico",
-  "id": "pe.jyanarico.estudiolegal",
-  "start_url": "/",
+  "short_name": "JYAbogados",
+  "id": "com.jyanarico.estudiolegal",
+  "start_url": "https://TU_DOMINIO/",
   "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
   "orientation": "portrait",
-  "background_color": "#293C3D",
-  "theme_color": "#293C3D",
   "description": "Defensa estratégica y soluciones legales claras. Primera consulta gratis.",
+  
   "icons": [
     {
-      "src": "/logo.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/logo.png",
+      "src": "/icons/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
+
   "screenshots": [
     {
-      "src": "/screenshot1.png",
+      "src": "/icons/screenshot1.png",
       "sizes": "1080x1920",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/icons/screenshot2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
     }
   ],
+
+  "categories": ["business", "productivity", "law", "consulting"],
+
+  "dir": "ltr",
+  
   "launch_handler": {
-    "client_mode": "navigate-existing"
-  }
+    "client_mode": ["navigate-existing", "auto"]
+  },
+
+  "scope_extensions": [
+    {
+      "origin": "https://TU_DOMINIO/"
+    }
+  ],
+
+  "prefer_related_applications": false
 }
