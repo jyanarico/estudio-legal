@@ -1,57 +1,46 @@
 {
+  "id": "/?app_id=jy-abogados",
   "name": "JY Abogados",
-  "short_name": "JYAbogados",
-  "id": "com.jyanarico.estudiolegal",
-  "start_url": "https://TU_DOMINIO/",
-  "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
-  "orientation": "portrait",
+  "short_name": "JY Abogados",
   "description": "Defensa estratégica y soluciones legales claras. Primera consulta gratis.",
-  
+  "lang": "es-PE",
+  "dir": "ltr",
+
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "scope_extensions": [{ "origin": "https://estudio-legal.vercel.app" }],
+
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#293C3D",
+  "theme_color": "#293C3D",
+
+  "categories": ["legal", "business", "productivity"],
+
   "icons": [
-    {
-      "src": "/icons/logo.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/logo.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "/icons/icon-192.png",      "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png",      "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-192.png",  "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/maskable-512.png",  "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
 
   "screenshots": [
-    {
-      "src": "/icons/screenshot1.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/icons/screenshot2.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide"
-    }
+    { "src": "/screenshots/home-1280x720.png",      "sizes": "1280x720", "type": "image/png", "form_factor": "wide", "label": "Inicio" },
+    { "src": "/screenshots/consultas-1280x720.png", "sizes": "1280x720", "type": "image/png", "form_factor": "wide", "label": "Consultas" }
   ],
 
-  "categories": ["business", "productivity", "law", "consulting"],
+  "shortcuts": [
+    { "name": "Agenda tu consulta", "url": "/#contacto", "description": "Ir al contacto/WhatsApp" }
+  ],
 
-  "dir": "ltr",
-  
-  "launch_handler": {
-    "client_mode": ["navigate-existing", "auto"]
+  "share_target": {
+    "action": "/compartir",
+    "method": "GET",
+    "params": { "title": "title", "text": "text", "url": "url" }
   },
 
-  "scope_extensions": [
-    {
-      "origin": "https://TU_DOMINIO/"
-    }
-  ],
+  "launch_handler": { "client_mode": "auto" },
 
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "related_applications": []
 }
